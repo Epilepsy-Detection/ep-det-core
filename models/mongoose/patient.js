@@ -1,5 +1,18 @@
 const mongoose = require("mongoose");
 
+const emergencyContactSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "You must provide a name for the emergency contact"],
+    minlength: 1,
+  },
+  phone: {
+    type: String,
+    required: [true, "You must provide a phonenumber for the emergency contact"],
+    minlength: 6,
+  },
+})
+
 const patientSchema = mongoose.Schema({
   _userId: {
     required: true,
@@ -24,6 +37,9 @@ const patientSchema = mongoose.Schema({
     ref: "Doctor",
     index: true,
   },
+  emergencyContact: {
+    type: [emergencyContactSchema],
+  }
 });
 
 const Patient = mongoose.model("Patient", patientSchema);
