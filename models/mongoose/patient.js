@@ -39,6 +39,9 @@ const patientSchema = mongoose.Schema({
   },
   emergencyContact: {
     type: [emergencyContactSchema],
+  },
+  profilePicture: {
+    type: mongoose.Schema.Types.String,
   }
 });
 

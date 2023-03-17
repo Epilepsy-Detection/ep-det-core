@@ -18,6 +18,9 @@ const doctorSchema = mongoose.Schema({
     required: [true, "You must provide a lastname"],
     minlength: 1,
   },
+  profilePicture: {
+    type: mongoose.Schema.Types.String,
+  }
 });
 
 const Doctor = mongoose.model("Doctor", doctorSchema);
